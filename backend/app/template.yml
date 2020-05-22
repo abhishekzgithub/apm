@@ -1,0 +1,166 @@
+##key to be copied from APM cloud profile - to be entered by user
+key: XXXXXXXXX
+
+##optional  
+#heartbeat_interval: 300
+
+#projects:
+
+  #awsDetails:
+    ##Aws account secret key - to be entered by user
+    #secretKey: XXXXXXXXX
+    ##Aws account access key - to be entered by user
+    #accessKey: XXXXXXXXX
+
+  #projectList:
+  ##Name of the project - to be entered by user 
+  #- name: controller_pro
+
+    #applications:
+    ##Name of the application - to be entered by user
+    #- name: cat_app
+
+      #endpoints:
+      ##Name of the endpoint - to be entered by user
+      #- name: rds_endpoint_test
+        #endpoint_type: rds
+        #config:
+          ##region where the instance is present - to be entered by user
+          #region: us-west-2
+          ##DB Identifier in AWS Console - to be entered by user
+          #instanceName: petclinic-petclinicwebapp-1585204912-database
+        ##optional tags can be added by user in the below "tags" section
+        #tags:
+          #key1: value1
+        #metric:
+        #- plugin: cloudwatch-rds
+          #enabled: true
+          ##optional
+          #interval: 300 
+ 
+        #- plugin: cloudwatch-mysqlinsights
+          #enabled: true
+          ##optional
+          #interval: 300
+
+        #- plugin: mysql
+          #enabled: true
+          ##optional
+          #interval: 300 
+          #config:
+            ## Endpoint of RDS in AWS Console - to be entered by user
+            #ip: petclinic-petclinicwebapp-1585204912-database.czm0rlpyfodv.us-west-2.rds.amazonaws.com
+            ##to be entered by user
+            #username: XXXXXXXXX
+            ##to be entered by user
+            #password: XXXXXXXXX
+            ##serverDetails and databaseDetails are collected by default , supported documents listed below 
+            #documentsTypes:
+            #- serverDetails
+            #- databaseDetails
+            #- tableDetails
+            
+        #- plugin: postgres
+          #enabled: true
+          ##optional
+          #interval: 300
+          #config:
+           ## Endpoint of RDS in AWS Console - to be entered by user
+           #ip: database-2.czm0rlpyfodv.us-west-2.rds.amazonaws.com
+           ##to be entered by user
+           #username: postgres
+           ##to be entered by user
+           #password: postgres
+           ##to be entered by user
+           #port: 5432
+           ##serverDetails and databaseDetails are collected by default , supported documents listed below
+           #documentsTypes:
+           #- serverDetails
+           #- databaseDetails
+           #- tableDetails
+           #- indexDetails
+           #- queryDetails
+
+      ##Name of the endpoint - to be entered by user
+      #- name: s3_endpoint_test
+        #endpoint_type: s3
+        #config:
+          ##region where the instance is present - to be entered by user
+          #region: us-west-2
+          ##S3 Bucket Name in AWS Console - to be entered by user
+          #instanceName: petclinic-s3-petclinicwebapp-1585204911
+        ##optional tags can be added by user in the below "tags" section
+        #tags:
+          #key1: value1
+        #metric:
+        #- plugin: cloudwatch-s3
+          #enabled: true
+          ##optional
+          #interval: 300
+
+      ##Name of the endpoint - to be entered by user
+      #- name: elb_endpoint_test
+        #endpoint_type: elb
+        #config:
+          ##region where the instance is present - to be entered by user
+          #region: us-west-2
+          ##ELB Name in AWS Console - to be entered by user
+          #instanceName: pc-elb-petclinicwebapp
+        ##optional tags can be added by user in the below "tags" section
+        #tags:
+          #key1: value1
+        #metric:
+        #- plugin: cloudwatch-classic
+          #enabled: true
+          ##optional
+          #interval: 300
+
+      ##Name of the endpoint - to be entered by user
+      #- name: elb_2test
+        #endpoint_type: elb
+        #config:
+          ##region where the instance is present - to be entered by user
+          #region: us-west-2
+          ##ELB Name in AWS Console - to be entered by user
+          #instanceName: a6880734a700b11ea9856062872ab9ab
+        ##optional tags can be added by user in the below "tags" section
+        #tags:
+          #key1: value1
+        #metric:
+        #- plugin: cloudwatch-network
+          #enabled: true
+          ##optional
+          #interval: 300
+
+
+#clouds:
+##Display name for account which user wants to see - to be entered by user
+#- name: Home-Account
+  #type: aws
+  ##optional tags can be added by user in the below "tags" section
+  #tags:
+    #key1: value1
+
+  #config:
+    ##Aws account secret key - to be entered by user
+    #secretKey: XXXXXXXXX
+    ##Aws account access key - to be entered by user
+    #accessKey: XXXXXXXXX
+    ##Aws account token used with secret key - to be entered by user if applicable otherwise leave as it is
+    #token:
+
+  #metric:
+  #- plugin: awsBilling
+    #enabled: true
+    ##optional 
+    #interval: 300
+    #config:
+      ##s3 bucket name in which billing csv generated by aws is saved - to be entered by user 
+      #bucket: snappyflowbilling
+      ##folder path in the above bucket where the csv is placed - to be entered by user
+      #folder: Billreport/SnappyflowReport
+    
+  #- plugin: awsInventory
+    #enabled: true
+    ##optional 
+    #interval: 300​

@@ -1,0 +1,32 @@
+key: key2
+logging:
+  plugins:
+  - config:
+      log_level:
+      - error
+      log_path: /var/log/syslog,/var/log/auth.log,/var/log/messages,/var/log/secure
+    enabled: true
+    name: linux-syslog
+metrics:
+  plugins:
+  - enabled: true
+    interval: 300
+    name: linux
+  - config:
+      documentsTypes:
+      - databaseDetails
+      - indexDetails
+      - queryDetails
+      - serverDetails
+      - tableDetails
+      host: 127.0.0.1
+      password: postgres
+      port: 5432
+      user: postgres
+    enabled: true
+    interval: 300
+    name: postgres
+tags:
+  Name: CHANGEME
+  appName: CHANGEME
+  projectName: CHANGEME

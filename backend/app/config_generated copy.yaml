@@ -1,0 +1,32 @@
+key: CHANGEME
+tags:
+  Name: CHANGEME
+  appName: CHANGEME
+  projectName: CHANGEME
+metrics:
+  plugins:
+  - name: linux
+    enabled: true
+    interval: 300
+  - name: postgres
+    enabled: true
+    interval: 300
+    config:
+      documentsTypes:
+      - databaseDetails
+      - indexDetails
+      - queryDetails
+      - serverDetails
+      - tableDetails
+      host: 127.0.0.1
+      password: postgres
+      port: 5432
+      user: postgres
+logging:
+  plugins:
+  - name: linux-syslog
+    enabled: true
+    config:
+      log_level:
+      - error
+      log_path: /var/log/syslog,/var/log/auth.log,/var/log/messages,/var/log/secure
