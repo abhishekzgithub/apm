@@ -3,12 +3,12 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .main import config_ops, controller_service
 import json
+import os
 # Create your views here.
-from pdb import set_trace
+#from pdb import set_trace
 
 FILEPATH="/opt/sfagent/config.yaml"
-FILEPATH = r"D:\snappyflow\backend\app\test.yaml"
-
+FILEPATH = (os.path.join(os.path.dirname(__file__),"test.yaml"))
 class AgentMonitor(APIView):
     def get(self,request,format=None):
         config_yaml=config_ops.read_config(FILEPATH)
