@@ -47,15 +47,15 @@ export default class ApplicationEndpointsMetric extends Component{
     }
 
     render()
-    {   const metrics = this.props.propFromAppEndPoints
-        console.log("ApplicationEndpointsMetric")
+    {   //const metrics = this.props.propFromAppEndPoints
+        //console.log("ApplicationEndpointsMetric")
         //console.log(metrics)       
         const {application_endpoints_metric} = this.state
-        console.log(application_endpoints_metric)
+        //console.log(application_endpoints_metric)
         const renderData=()=>{
             if (application_endpoints_metric.length !== 0)
             {
-                console.log(application_endpoints_metric)
+                //console.log(application_endpoints_metric)
                 return(
                     <div>
                         {application_endpoints_metric.map((items,index)=>
@@ -88,7 +88,7 @@ export default class ApplicationEndpointsMetric extends Component{
                 <br/>
                 <h4 align="center">ApplicationEndpointsMetric</h4>
                 <br/><br/>
-                <label>endpoints:name:metric</label>
+                <label>endpoints:(name):metric</label>
                 <div>
                     {(application_endpoints_metric.length!==0? renderData() : [])}
                 </div>

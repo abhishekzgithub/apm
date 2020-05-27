@@ -19,13 +19,13 @@ export default class Clouds extends Component {
     static getDerivedStateFromProps(props, state) 
     {
         let receivedProps=props.dataFromProjectAttr
-        console.log("getDerivedStateFromProps")
-        console.log(receivedProps)
-        console.log(state)
+        //console.log("getDerivedStateFromProps")
+        //console.log(receivedProps)
+        //console.log(state)
         if (receivedProps) 
             {   let cloud=receivedProps[0] //todo current assumption is there will be only one name 
-                console.log("getDerivedStateFromProps props recieved")
-                console.log(cloud)
+                //console.log("getDerivedStateFromProps props recieved")
+                //console.log(cloud)
                 return (
                     {name: cloud.name,
                     type:cloud.type,
@@ -41,7 +41,7 @@ export default class Clouds extends Component {
 
     render() {
             const { name, type, tags, config, metric } = this.state
-            console.log("In render")
+            //console.log("In render")
             return (
                 <div>
                     <h2 align="center">Clouds</h2>

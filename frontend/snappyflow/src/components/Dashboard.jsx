@@ -13,10 +13,6 @@ class Dashboard extends React.Component{
             key : "",
             projects : ""  
         };
-        this.getYaml=this.getYaml.bind(this);
-        this.readAwsDetails=this.readAwsDetails.bind(this);
-        this.displayProjectList=this.displayProjectList.bind(this);
-        this.readClouds=this.readClouds.bind(this);
     }
 
     getYaml=()=> {
@@ -39,65 +35,17 @@ class Dashboard extends React.Component{
                             console.log(error)
                         });
                     }
-    addProject=()=>
-    {
-
-    }
-    deleteProject=()=>
-    {
-
-    }
-   
-   readAwsDetails=(awsDetails)=>
-   {
-    var accessKey=""
-    var secretKey = ""
-    if (typeof awsDetails!=='undefined')
-        {
-            //console.log("Awsdetails")
-            accessKey=awsDetails.accessKey
-            secretKey=awsDetails.secretKey
-        }
-    return (
-        <div>
-            <h4 align="centre">awsDetails</h4>
-            <label>secretKey: {secretKey}</label><br/><br/>
-            <label>accessKey: {accessKey}</label><br/>
-            
-        </div>)
-   }
-
-   readClouds=(state)=>{
-       //console.log("Updated")
-   }
-   displayProjectList=(projects)=>{
-
-   }
-   displayEndPoints=(endpoint)=>{
-
-   }
-   displayEndpointType=(endpoint)=>{
-
-   }
 
    componentDidMount(){
        this.getYaml()
-       this.readAwsDetails()
-}
+    }
     render(){
-        const {clouds, heartbeat_interval, key, projects} = this.state
+        // const {clouds, heartbeat_interval, key, projects} = this.state
         return(
             <div>
                 <h1 align="center">Dashboard</h1>
-                    <label>key : {key}</label><br/>
-                    <label>heartbeat_interval: {heartbeat_interval}</label><br/><br/>
-                    <label>projects:</label><br/>
-                    {this.readAwsDetails(projects.awsDetails)}
-                    {this.readClouds(clouds)}
-                    <ProjectAttributes dataFromDashboard = {this.state}/>
+                <ProjectAttributes dataFromDashboard = {this.state}/>
             </div>
-
-            
         )
     }};
 

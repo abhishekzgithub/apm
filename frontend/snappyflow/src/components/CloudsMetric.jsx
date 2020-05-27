@@ -12,7 +12,7 @@ export default class CloudsMetric extends Component{
     static getDerivedStateFromProps(props, state) 
     {
         let receivedProps=props.dataFromClouds
-        console.log("dataFromClouds")
+        //console.log("dataFromClouds")
         //console.log(receivedProps)
         //console.log(state)
         if (!(Object.keys(receivedProps).length === 0 && receivedProps.constructor === Object)) 
@@ -35,68 +35,14 @@ export default class CloudsMetric extends Component{
         // Return null if the state hasn't changed
         return null;
     }
-    // todo
-    // this will be a nested map which needs to be handled
-    // getPlugin=()=>{
-    //     return(
-    //         <div>
-    //             <ul>
-    //                 {
-    //                     this.state.clouds_metric.map(item=>{
-    //                         <li>{item.plugin}</li>
-    //                     })
-    //                 }
-    //             </ul>
-    //         </div>
-    //     )
-    // }
-    addPlugin=(clouds_metric)=>{
-        if (clouds_metric.length!=0){
-            console.log("add plugin")
-            console.log(clouds_metric)
-        }
-        else{
-            return null;
-        }
-    }
-    updatePlugin=(clouds_metric)=>{
-        if (clouds_metric.length!=0){
-            console.log("add plugin")
-            console.log(clouds_metric)
-        }
-        else{
-            return null;
-        }
-    }
-    deletePlugin = (clouds_metric,index) =>
-    {
-        if (clouds_metric.length!=0){
-            //let { clouds }=this.state.clouds_metric
-            console.log("deletePlugin")
-            console.log(clouds_metric)
-            console.log(index)
-            clouds_metric.map((item,index)=>
-                {
-                    item.map((nestedItem,index)=>{
-                        console.log("nested item")
-                        console.log(nestedItem)
-                    })
-                })
-        }
-        else
-        {
-            return null;
-        }
-        
-    }
 
     render()
     {   let {clouds_metric} = this.state
-        console.log("In cloud metric")
+        //console.log("In cloud metric")
         const renderData=()=>{
             if (clouds_metric.length !== 0)
             {
-                console.log(clouds_metric)
+                //console.log(clouds_metric)
                 return(
                     <div >
                         {clouds_metric.map((items,index)=>

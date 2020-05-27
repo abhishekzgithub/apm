@@ -57,41 +57,42 @@ export default class ApplicationEndpoints extends Component{
         //console.log(endpoints)
         //const {name, endpoint_type, config, tags, metric} = this.state.application_endpoints
         let {application_endpoints} = this.state
-        console.log("application_endpoints")
-        console.log(application_endpoints)
+        //console.log("application_endpoints")
+        //console.log(application_endpoints)
         //debugger;
         ///////////////////////////////////////////////////////
 
-        // const renderData=()=>{
-        //     if (clouds_metric.length !== 0)
-        //     {
-        //         console.log(clouds_metric)
-        //         return(
-        //             <div>
-        //                 {clouds_metric.map((items,index)=>
-        //                     items.map((endpt,ix)=>
-        //                         {
-        //                             return(
-        //                                 <ul>
-        //                                 <li key={Math.random().toString(36).substr(2, 9)}>plugin: {JSON.stringify(endpt.plugin)}</li>
-        //                                 <li key={Math.random().toString(36).substr(2, 9)}>enabled: {JSON.stringify(endpt.enabled)}</li>
-        //                                 <li key={Math.random().toString(36).substr(2, 9)}>interval: {JSON.stringify(endpt.interval)}</li>
-        //                                 <li key={Math.random().toString(36).substr(2, 9)}>config: {JSON.stringify(endpt.config)}</li>
-        //                                 </ul>
-        //                             )
-        //                         }
-        //                         )
-        //                     )}
+        const renderData=()=>{
+            if (application_endpoints.length !== 0)
+            {
+                //console.log(application_endpoints)
+                return(
+                    <div>
+                        {application_endpoints.map((items,index)=>
+                            items.map((endpt,ix)=>
+                                {
+                                    return(
+                                        <ul>
+                                        <li key={Math.random().toString(36).substr(2, 9)}>name: {JSON.stringify(endpt.name)}</li>
+                                        <li key={Math.random().toString(36).substr(2, 9)}>endpoint_type: {JSON.stringify(endpt.endpoint_type)}</li>
+                                        <li key={Math.random().toString(36).substr(2, 9)}>config: {JSON.stringify(endpt.config)}</li>
+                                        <li key={Math.random().toString(36).substr(2, 9)}>tags: {JSON.stringify(endpt.tags)}</li>
+                                        
+                                        </ul>
+                                    )
+                                }
+                                )
+                            )}
                         
-        //             </div>
-        //         )
+                    </div>
+                )
                 
-        //     }
-        //     else
-        //     {
-        //         return null;
-        //     }
-        // }
+            }
+            else
+            {
+                return null;
+            }
+        }
 
         ///////////////////////////////////////////////////////
         return(
@@ -103,7 +104,11 @@ export default class ApplicationEndpoints extends Component{
                     <label>endpoint_type : {endpoint_type}</label><br/>
                     <label>config : {JSON.stringify(config)}</label><br/>
                     <label>tags : {JSON.stringify(tags)}</label><br/> */}
-                    <label>application_endpoints : {JSON.stringify(application_endpoints)}</label><br/>
+                    {/* <label>application_endpoints : {JSON.stringify(application_endpoints)}</label><br/> */}
+                </div>
+                <div>
+                    <label>endpoints</label>
+                {(application_endpoints && application_endpoints.length!=0) ? renderData() : []}
                 </div>
                 <div>
                     <ApplicationEndpointsMetric 

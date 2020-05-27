@@ -37,41 +37,60 @@ export default class Applications extends Component{
         // Return null if the state hasn't changed
         return null;
     }
-
-    displayProjectList=()=>
-    {
-
-    }
-    addProjectList=()=>
-    {
-
-    }
-    updateProjectList=()=>{
-
-    }
-
-    deleteProjectList=()=>
-    {
-
-    }
-
-
     render()
     {   //const projects = this.props.dataFromProjectAttr
         let {projectList} = this.state
-        console.log("Applications")
-
-        console.log(projectList)
+        //console.log("Applications")
+        //console.log(projectList)
         //debugger;
         //const {name, endpoints} = this.state//.applications
+
+///////////////////////////////////////////////////////
+
+        const renderData=()=>{
+            if (projectList.length !== 0)
+            {
+                //console.log(projectList)
+                return(
+                    <div>
+                        {projectList.map((items,index)=>
+                            items.map((endpt,ix)=>
+                                {
+                                    return(
+                                        <ul>
+                                        <li key={Math.random().toString(36).substr(2, 9)}>name: {JSON.stringify(endpt.name)}</li>
+                                        <li key={Math.random().toString(36).substr(2, 9)}>applications: {JSON.stringify(endpt.applications)}</li>
+                                        {/* <li key={Math.random().toString(36).substr(2, 9)}>endpoints: {JSON.stringify(endpt.endpoints)}</li> */}
+                                        </ul>
+                                    )
+                                }
+                                )
+                            )}
+                        
+                    </div>
+                )
+                
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+///////////////////////////////////////////////////////
+
 
         return(
             <div>
                 <br/>
                 <h2 align="center">Applications</h2>
                 <br/>
-                <div>
+                <label>(applications)</label>
+                {/* <div>
                     <label>project : {JSON.stringify(projectList)}</label><br/>
+                </div> */}
+                <div>
+                {(projectList && projectList.length!=0) ? renderData() : []}
                 </div>
                 <div>
                     <ApplicationEndpoints propFromApplication = {(projectList && projectList.length!=0) ? projectList[0][0].endpoints : []}/>
