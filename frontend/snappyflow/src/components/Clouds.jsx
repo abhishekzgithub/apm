@@ -44,15 +44,15 @@ export default class Clouds extends Component {
             //console.log("In render")
             return (
                 <div>
-                    <h2 align="center">Clouds</h2>
-                    <br />
+                    <h3 align="left">Clouds</h3>
+                    <ul>
+                        <li>name : {name}</li>
+                        <li>type : {JSON.stringify(type)}</li>
+                        <li>tags : {JSON.stringify(tags)}</li>
+                        <li>config : {JSON.stringify(config)}</li>
+                    </ul>
                     <div>
-                        <label>name : {name}</label><br />
-                        <label>type : {JSON.stringify(type)}</label><br />
-                        <label>tags : {JSON.stringify(tags)}</label><br />
-                        <label>config : {JSON.stringify(config)}</label><br />
-                        {/* <label>metric : {JSON.stringify(metric)}</label><br /> */}
-                        <CloudsMetric dataFromClouds = {metric}/>
+                    <CloudsMetric dataFromClouds = {metric}/>
                     </div>
                 </div>
             )

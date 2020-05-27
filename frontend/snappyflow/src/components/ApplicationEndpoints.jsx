@@ -72,7 +72,7 @@ export default class ApplicationEndpoints extends Component{
                             items.map((endpt,ix)=>
                                 {
                                     return(
-                                        <ul key={ix}>
+                                        <ul key={endpt.index}>
                                         <li > name: {JSON.stringify(endpt.name)}</li>
                                         <li > endpoint_type: {JSON.stringify(endpt.endpoint_type)}</li>
                                         <li > config: {JSON.stringify(endpt.config)}</li>
@@ -96,17 +96,8 @@ export default class ApplicationEndpoints extends Component{
         ///////////////////////////////////////////////////////
         return(
             <div>
-                <h2 align="center">ApplicationEndpoints</h2>
-                <br/>
+                <h3 align="left">Application Endpoints: </h3>
                 <div>
-                    {/* <label>name : {name}</label><br/>
-                    <label>endpoint_type : {endpoint_type}</label><br/>
-                    <label>config : {JSON.stringify(config)}</label><br/>
-                    <label>tags : {JSON.stringify(tags)}</label><br/> */}
-                    {/* <label>application_endpoints : {JSON.stringify(application_endpoints)}</label><br/> */}
-                </div>
-                <div>
-                    <label>endpoints</label>
                 {(application_endpoints && application_endpoints.length!=0) ? renderData() : []}
                 </div>
                 <div>

@@ -43,7 +43,7 @@ class Dashboard extends React.Component{
         // const {clouds, heartbeat_interval, key, projects} = this.state
         return(
             <div>
-                <h1 align="center">Controller Configuration: </h1>
+                <h1 align="left">Controller Configuration: </h1>
                 <ProjectAttributes dataFromDashboard = {this.state}/>
             </div>
         )

@@ -16,11 +16,16 @@ export default class ProjectAttributes extends Component{
         //console.log(projects)
         return(
             <div>
-                <h2 align="center">Controller Global Settings</h2>
+                <h2 align="left">Controller Global Settings</h2>
                 <div>
                     <label>key: {key || ""}</label><br/>
                     <label>heartbeat_interval: {heartbeat_interval || ""}</label><br/>
-                    <label>projects:</label><br/><br/>
+                </div>
+                <div>
+                    <h2 align="left">Projects</h2>
+                </div>
+                <div>
+                    <h3>Global Settings</h3>
                     <label>awsDetails:</label>
                     <ul>
                         <li>secretKey: {(projects && (typeof projects!=='undefined')) ? projects.awsDetails.secretKey :""} </li>

@@ -49,20 +49,15 @@ export default class CloudsMetric extends Component{
                             items.map((endpt,ix)=>
                                 {
                                     return(
-                                        <ul key={ix}>
+                                        <ul key={endpt.index}>
                                         <li >plugin: {JSON.stringify(endpt.plugin)}</li>
                                         <li >enabled: {JSON.stringify(endpt.enabled)}</li>
                                         <li >interval: {JSON.stringify(endpt.interval)}</li>
                                         <li >config: {JSON.stringify(endpt.config)}</li>
                                         </ul>
-                                    )
-                                }
-                                )
-                            )}
-                        
+                                    )}))}
                     </div>
                 )
-                
             }
             else
             {
@@ -72,15 +67,9 @@ export default class CloudsMetric extends Component{
         //debugger;
         return(
             <div>
-                <h2 align="center">CloudsMetric</h2>
-                <br/>
+                <h3 align="left">CloudsMetric</h3>
                 <div>
-                    {/* <label>clouds_metric : {JSON.stringify(clouds_metric)}</label><br/> */}
-                    <label>metric </label><br/>
                     {(clouds_metric.length!==0? renderData() : [])}
-                    <button onClick={this.addPlugin}>Add</button>
-                    <button onClick={this.updatePlugin}>Edit</button>
-                    <button onClick={this.deletePlugin}>Delete</button>
                 </div>
             </div>
         )
