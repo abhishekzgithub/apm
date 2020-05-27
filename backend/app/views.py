@@ -7,7 +7,7 @@ import json
 from pdb import set_trace
 
 FILEPATH="/opt/sfagent/config.yaml"
-#FILEPATH = r"D:\snappyflow\backend\app\config_generated.yaml"
+FILEPATH = r"D:\snappyflow\backend\app\test.yaml"
 
 class AgentMonitor(APIView):
     def get(self,request,format=None):

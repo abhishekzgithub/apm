@@ -34,7 +34,7 @@ class ControllerService(Application):
         return lines
     def run_locally(self):
         cmd=["service", "controller", "restart"]
-        #cmd = ["dir"]
+        cmd = ["dir"]
         return subprocess.run(cmd,shell=False,check=True)#,capture_output=True)
     
 config_ops=ConfigOperation()

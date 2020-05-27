@@ -1,0 +1,82 @@
+import React ,{Component} from "react";
+import ApplicationEndpoints from "./ApplicationEndpoints"
+
+export default class Applications extends Component{
+    constructor(props)
+    {
+        super(props);
+        this.state = {
+            projectList : [],
+        }
+    
+    }
+
+    static getDerivedStateFromProps(props, state) 
+    {
+        let receivedProps=props.dataFromProjectAttr
+        //console.log("dataFromProjectAttr")
+        //console.log(receivedProps)
+        if (Boolean(receivedProps))// && Object.keys(receivedProps).length === 0 && receivedProps.constructor === Object)
+        {
+            let projectList=receivedProps.projectList
+            //console.log("Props received in application component")
+            //console.log(projectList)
+            projectList.map((project,index)=>
+            {
+                //console.log(project.name)
+                project.applications.map((app,index)=>{
+                    //console.log(app.name)
+                    state.projectList.push([
+                        {name : project.name,
+                         applications : app.name ,
+                         endpoints : app.endpoints}
+                    ])
+            })
+            })
+        }
+        // Return null if the state hasn't changed
+        return null;
+    }
+
+    displayProjectList=()=>
+    {
+
+    }
+    addProjectList=()=>
+    {
+
+    }
+    updateProjectList=()=>{
+
+    }
+
+    deleteProjectList=()=>
+    {
+
+    }
+
+
+    render()
+    {   //const projects = this.props.dataFromProjectAttr
+        let {projectList} = this.state
+        console.log("Applications")
+
+        console.log(projectList)
+        //debugger;
+        //const {name, endpoints} = this.state//.applications
+
+        return(
+            <div>
+                <br/>
+                <h2 align="center">Applications</h2>
+                <br/>
+                <div>
+                    <label>project : {JSON.stringify(projectList)}</label><br/>
+                </div>
+                <div>
+                    <ApplicationEndpoints propFromApplication = {(projectList && projectList.length!=0) ? projectList[0][0].endpoints : []}/>
+                </div>
+            </div>
+        )
+    }
+}
