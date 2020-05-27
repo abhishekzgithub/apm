@@ -1,0 +1,54 @@
+{
+  "mysql": {
+            "config": 
+                    [
+                    {
+                    "fieldName": "username",
+                    "label": "Username",
+                    "dataType": "string",
+                    "Mandatory": true,
+                    "defaultValue": "root",
+                    "min": "",
+                    "max": "",
+                    "tooltip":"Username for MySQL server"
+                },
+                {
+                    "fieldName": "password",
+                    "label": "Password",
+                    "dataType": "password",
+                    "Mandatory": true,
+                    "defaultValue": "maplelabs",
+                    "min": "",
+                    "max": "",
+                    "tooltip":"Password for MySQL server"
+                    },
+                    {
+                    "fieldName": "documentsTypes",
+                    "label": "Document Types",
+                    "dataType": "list",
+                    "multiselect": true,
+                    "Mandatory": true,
+                    "defaultValue": [
+                        "databaseDetails", "serverDetails", "tableDetails"
+                        ],
+                    "options": [
+                        {
+                            "label": "databaseDetails",
+                            "value": "databaseDetails"
+                        },
+                        {
+                            "label": "serverDetails",
+                            "value": "serverDetails"
+                        },
+                        {
+                            "label": "tableDetails",
+                            "value": "tableDetails"
+                        }
+                    ],
+                    "min": "",
+                    "max": "",
+                    "tooltip": "document Types to be collected "
+                }
+            ]
+        }
+}

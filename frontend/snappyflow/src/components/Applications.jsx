@@ -24,10 +24,11 @@ export default class Applications extends Component{
             projectList.map((project,index)=>
             {
                 //console.log(project.name)
-                project.applications.map((app,index)=>{
+                project.applications.map((app,ix)=>{
                     //console.log(app.name)
                     state.projectList.push([
-                        {name : project.name,
+                        {index : ix,
+                         name : project.name,
                          applications : app.name ,
                          endpoints : app.endpoints}
                     ])
@@ -52,14 +53,14 @@ export default class Applications extends Component{
             {
                 //console.log(projectList)
                 return(
-                    <div>
+                    <div >
                         {projectList.map((items,index)=>
                             items.map((endpt,ix)=>
                                 {
                                     return(
-                                        <ul>
-                                        <li key={Math.random().toString(36).substr(2, 9)}>name: {JSON.stringify(endpt.name)}</li>
-                                        <li key={Math.random().toString(36).substr(2, 9)}>applications: {JSON.stringify(endpt.applications)}</li>
+                                        <ul key={ix}>
+                                        <li > name: {JSON.stringify(endpt.name)}</li>
+                                        <li > applications: {JSON.stringify(endpt.applications)}</li>
                                         {/* <li key={Math.random().toString(36).substr(2, 9)}>endpoints: {JSON.stringify(endpt.endpoints)}</li> */}
                                         </ul>
                                     )

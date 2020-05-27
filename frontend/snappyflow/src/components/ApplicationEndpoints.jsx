@@ -72,12 +72,11 @@ export default class ApplicationEndpoints extends Component{
                             items.map((endpt,ix)=>
                                 {
                                     return(
-                                        <ul>
-                                        <li key={Math.random().toString(36).substr(2, 9)}>name: {JSON.stringify(endpt.name)}</li>
-                                        <li key={Math.random().toString(36).substr(2, 9)}>endpoint_type: {JSON.stringify(endpt.endpoint_type)}</li>
-                                        <li key={Math.random().toString(36).substr(2, 9)}>config: {JSON.stringify(endpt.config)}</li>
-                                        <li key={Math.random().toString(36).substr(2, 9)}>tags: {JSON.stringify(endpt.tags)}</li>
-                                        
+                                        <ul key={ix}>
+                                        <li > name: {JSON.stringify(endpt.name)}</li>
+                                        <li > endpoint_type: {JSON.stringify(endpt.endpoint_type)}</li>
+                                        <li > config: {JSON.stringify(endpt.config)}</li>
+                                        <li > tags: {JSON.stringify(endpt.tags)}</li>
                                         </ul>
                                     )
                                 }

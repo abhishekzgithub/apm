@@ -49,11 +49,11 @@ export default class CloudsMetric extends Component{
                             items.map((endpt,ix)=>
                                 {
                                     return(
-                                        <ul>
-                                        <li key={Math.random().toString(36).substr(2, 9)}>plugin: {JSON.stringify(endpt.plugin)}</li>
-                                        <li key={Math.random().toString(36).substr(2, 9)}>enabled: {JSON.stringify(endpt.enabled)}</li>
-                                        <li key={Math.random().toString(36).substr(2, 9)}>interval: {JSON.stringify(endpt.interval)}</li>
-                                        <li key={Math.random().toString(36).substr(2, 9)}>config: {JSON.stringify(endpt.config)}</li>
+                                        <ul key={ix}>
+                                        <li >plugin: {JSON.stringify(endpt.plugin)}</li>
+                                        <li >enabled: {JSON.stringify(endpt.enabled)}</li>
+                                        <li >interval: {JSON.stringify(endpt.interval)}</li>
+                                        <li >config: {JSON.stringify(endpt.config)}</li>
                                         </ul>
                                     )
                                 }

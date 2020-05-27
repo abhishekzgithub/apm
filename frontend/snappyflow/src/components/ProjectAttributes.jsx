@@ -1,11 +1,8 @@
 import React ,{Component} from "react";
 
 import Applications from "./Applications"
-
-//import ApplicationEndpointsConfig from "./ApplicationEndpointsConfig"
-//import ApplicationEndpointsMetric from "./ApplicationEndpointsMetric"
-//import ApplicationEndpointsMetricPluginConfig from "./ApplicationEndpointsMetricPluginConfig"
 import Clouds from "./Clouds"
+
 export default class ProjectAttributes extends Component{
     constructor(props)
     {
@@ -19,7 +16,7 @@ export default class ProjectAttributes extends Component{
         //console.log(projects)
         return(
             <div>
-                <h2 align="center">ProjectAttributes</h2>
+                <h2 align="center">Controller Global Settings</h2>
                 <div>
                     <label>key: {key || ""}</label><br/>
                     <label>heartbeat_interval: {heartbeat_interval || ""}</label><br/>

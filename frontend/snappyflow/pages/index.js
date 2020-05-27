@@ -7,14 +7,12 @@ export default function Home() {
   return (
     <div className="container">
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>SnappyFlow</title>
       </Head>
-
       <main>
-        <div id="id-login">
+        {/* <div id="id-login">
           <Login/>
-        </div>
+        </div> */}
         <div id="id-dashboard">
           <br/><br/>
           <Dashboard/>
