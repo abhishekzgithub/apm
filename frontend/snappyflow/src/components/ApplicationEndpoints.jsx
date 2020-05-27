@@ -72,12 +72,19 @@ export default class ApplicationEndpoints extends Component{
                             items.map((endpt,ix)=>
                                 {
                                     return(
-                                        <ul key={endpt.index}>
-                                        <li > name: {JSON.stringify(endpt.name)}</li>
-                                        <li > endpoint_type: {JSON.stringify(endpt.endpoint_type)}</li>
-                                        <li > config: {JSON.stringify(endpt.config)}</li>
-                                        <li > tags: {JSON.stringify(endpt.tags)}</li>
-                                        </ul>
+                                        <div>
+                                            <h3 align="left">Application Endpoint: </h3>
+                                            <ul key={endpt.index}>
+                                                <li > name: {JSON.stringify(endpt.name)}</li>
+                                                <li > endpoint_type: {JSON.stringify(endpt.endpoint_type)}</li>
+                                                <li > config: {JSON.stringify(endpt.config)}</li>
+                                                <li > tags: {JSON.stringify(endpt.tags)}</li><br/>
+                    <div>
+                        <ApplicationEndpointsMetric 
+                        propFromAppEndPoints = {(application_endpoints && application_endpoints.length!=0) ? application_endpoints[0][0].metric : []}/>
+                    </div>
+                                            </ul>
+                                        </div>
                                     )
                                 }
                                 )
@@ -96,14 +103,14 @@ export default class ApplicationEndpoints extends Component{
         ///////////////////////////////////////////////////////
         return(
             <div>
-                <h3 align="left">Application Endpoints: </h3>
+                
                 <div>
                 {(application_endpoints && application_endpoints.length!=0) ? renderData() : []}
                 </div>
-                <div>
+                {/* <div>
                     <ApplicationEndpointsMetric 
                     propFromAppEndPoints = {(application_endpoints && application_endpoints.length!=0) ? application_endpoints[0][0].metric : []}/>
-                </div>
+                </div> */}
             </div>
         )
     }

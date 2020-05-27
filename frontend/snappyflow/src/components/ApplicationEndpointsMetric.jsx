@@ -66,7 +66,7 @@ export default class ApplicationEndpointsMetric extends Component{
                                         <li >plugin: {JSON.stringify(endpt.plugin)}</li>
                                         <li >enabled: {JSON.stringify(endpt.enabled)}</li>
                                         <li >interval: {JSON.stringify(endpt.interval)}</li>
-                                        <li >config: {JSON.stringify(endpt.config)}</li>
+                                        <li >config: {JSON.stringify(endpt.config)}</li><br/>
                                         </ul>
                                     )
                                 }

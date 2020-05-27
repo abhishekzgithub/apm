@@ -58,11 +58,15 @@ export default class Applications extends Component{
                             items.map((endpt,ix)=>
                                 {
                                     return(
+                                        <div>
+                                            <h3 align="left">Project: </h3>
+                                        
                                         <ul key={endpt.index}>
-                                        <li > Project name: {JSON.stringify(endpt.name)}</li>
-                                        <li > Application name: {JSON.stringify(endpt.applications)}</li>
-                                        {/* <li key={Math.random().toString(36).substr(2, 9)}>endpoints: {JSON.stringify(endpt.endpoints)}</li> */}
+                                        <li > Project name: {endpt.name}</li>
+                                        <li > Application name: {endpt.applications}</li>
+                                        <ApplicationEndpoints propFromApplication = {(projectList && projectList.length!=0) ? projectList[0][0].endpoints : []}/>
                                         </ul>
+                                        </div>
                                     )
                                 }
                                 )
@@ -82,14 +86,14 @@ export default class Applications extends Component{
         return(
             <div>
                 <div>
-                    <h3 align="left">Project: </h3>
+                    
                 </div>
                 <div>
                 {(projectList && projectList.length!=0) ? renderData() : []}
                 </div>
-                <div>
+                {/* <div>
                     <ApplicationEndpoints propFromApplication = {(projectList && projectList.length!=0) ? projectList[0][0].endpoints : []}/>
-                </div>
+                </div> */}
             </div>
         )
     }
