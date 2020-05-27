@@ -85,7 +85,7 @@ export default class ApplicationEndpointsMetric extends Component{
         
     return(
             <div>
-                <h3 align="left">Application Endpoints Metric</h3>
+                <h4 align="left">Application Endpoint's Metric:</h4>
                 <div>
                     {(application_endpoints_metric.length!==0? renderData() : [])}
                 </div>
