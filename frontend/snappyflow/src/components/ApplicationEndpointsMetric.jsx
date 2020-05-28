@@ -1,4 +1,5 @@
 import React ,{Component} from "react";
+import ApplicationEndpointsMetricConfig from "./ApplicationEndpointsMetricConfig"
 
 export default class ApplicationEndpointsMetric extends Component{
     constructor(props)
@@ -47,7 +48,7 @@ export default class ApplicationEndpointsMetric extends Component{
     }
 
     render()
-    {   //const metrics = this.props.propFromAppEndPoints
+    {   const metrics = this.props.propFromAppEndPoints
         //console.log("ApplicationEndpointsMetric")
         //console.log(metrics)       
         const {application_endpoints_metric} = this.state
@@ -66,22 +67,16 @@ export default class ApplicationEndpointsMetric extends Component{
                                         <li >plugin: {JSON.stringify(endpt.plugin)}</li>
                                         <li >enabled: {JSON.stringify(endpt.enabled)}</li>
                                         <li >interval: {JSON.stringify(endpt.interval)}</li>
-                                        <li >config: {JSON.stringify(endpt.config)}</li><br/>
+                                        <li >
+                                        config: {((endpt.config)?(<ApplicationEndpointsMetricConfig propFromAppEndPointsMetric = {endpt.config}/>): {})}
+                                        </li><br/>
                                         </ul>
-                                    )
-                                }
-                                )
-                            )}
-                        
+                                    )}))}
                     </div>
-                )
-                
-            }
+                )}
             else
-            {
-                return null;
-            }
-    }
+            {return null;
+            }}
         
     return(
             <div>
@@ -89,6 +84,7 @@ export default class ApplicationEndpointsMetric extends Component{
                 <div>
                     {(application_endpoints_metric.length!==0? renderData() : [])}
                 </div>
+                
             </div>
         )
     }

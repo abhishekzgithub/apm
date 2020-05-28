@@ -72,7 +72,7 @@ export default class ApplicationEndpoints extends Component{
                             items.map((endpt,ix)=>
                                 {
                                     return(
-                                        <div>
+                                        <div key={endpt.index}>
                                             <h3 align="left">Application Endpoint: </h3>
                                             <ul key={endpt.index}>
                                                 <li > name: {JSON.stringify(endpt.name)}</li>

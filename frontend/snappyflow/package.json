@@ -1,11 +1,12 @@
 {
-  "name": "learn-starter",
+  "name": "snappyflow",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "export": "next export"
   },
   "dependencies": {
     "@material-ui/core": "^4.9.14",

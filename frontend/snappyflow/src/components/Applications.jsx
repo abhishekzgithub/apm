@@ -58,14 +58,13 @@ export default class Applications extends Component{
                             items.map((endpt,ix)=>
                                 {
                                     return(
-                                        <div>
+                                        <div key={endpt.index}>
                                             <h3 align="left">Project: </h3>
-                                        
-                                        <ul key={endpt.index}>
-                                        <li > Project name: {endpt.name}</li>
-                                        <li > Application name: {endpt.applications}</li>
-                                        <ApplicationEndpoints propFromApplication = {(projectList && projectList.length!=0) ? projectList[0][0].endpoints : []}/>
-                                        </ul>
+                                            <ul key={endpt.index}>
+                                                <li > Project name: {endpt.name}</li>
+                                                <li > Application name: {endpt.applications}</li>
+                                                <ApplicationEndpoints propFromApplication = {(projectList && projectList.length!=0) ? projectList[0][0].endpoints : []}/>
+                                            </ul>
                                         </div>
                                     )
                                 }
