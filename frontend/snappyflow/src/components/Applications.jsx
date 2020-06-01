@@ -66,15 +66,8 @@ export default class Applications extends Component{
                                                 <ApplicationEndpoints propFromApplication = {(projectList && projectList.length!=0) ? projectList[0][0].endpoints : []}/>
                                             </ul>
                                         </div>
-                                    )
-                                }
-                                )
-                            )}
-                        
-                    </div>
-                )
-                
-            }
+                                    )}))}
+                    </div>)}
             else
             {
                 return null;

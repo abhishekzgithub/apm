@@ -89,6 +89,12 @@ export default class ApplicationEndpointsMetricConfig extends Component{
                 <div>
                     {renderData()}<br/>
                 </div>
+                <div align="right">
+                        <button type="submit">Add</button>
+                        <button type="submit">Edit</button>
+                        <button type="submit">Delete</button>
+                        <button type="submit">Save</button>
+                    </div>
             </div>
         )
     }

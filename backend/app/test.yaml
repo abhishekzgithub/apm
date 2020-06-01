@@ -18,11 +18,11 @@ projects:
 
     applications:
     ##Name of the application - to be entered by user
-    - name: cat_app
+    - name: cat_app1
 
       endpoints:
       ##Name of the endpoint - to be entered by user
-      - name: rds_endpoint_test
+      - name: rds_endpoint_test1
         endpoint_type: rds
         config:
           ##region where the instance is present - to be entered by user
@@ -137,11 +137,11 @@ projects:
 
     applications:
     ##Name of the application - to be entered by user
-    - name: cat_app
+    - name: cat_app2
 
       endpoints:
       ##Name of the endpoint - to be entered by user
-      - name: rds_endpoint_test
+      - name: rds_endpoint_test2
         endpoint_type: rds
         config:
           ##region where the instance is present - to be entered by user
