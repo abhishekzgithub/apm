@@ -6,6 +6,7 @@ export default class ApplicationEndpoints extends Component{
     {
         super(props);
         this.state = {
+            modified : false,
             application_endpoints : [],
             // {
             //     name : "",
@@ -27,6 +28,8 @@ export default class ApplicationEndpoints extends Component{
         
         if (!( receivedProps.length === 0) && receivedProps.constructor === Array)
         {
+            if (!state.modified){
+                state.modified=true
             let projectList=receivedProps
             //console.log("Props received in application component")
             //console.log(projectList)
@@ -45,7 +48,7 @@ export default class ApplicationEndpoints extends Component{
                 )
                 
             })
-        }
+        }}
         // Return null if the state hasn't changed
         return null;
     }

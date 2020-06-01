@@ -6,6 +6,7 @@ export default class ApplicationEndpointsMetric extends Component{
     {
         super(props);
         this.state = {
+            modified : false,
             application_endpoints_metric :[]
             // {
             //     plugin: "",
@@ -25,6 +26,8 @@ export default class ApplicationEndpointsMetric extends Component{
         
         if (!( receivedProps.length === 0) && receivedProps.constructor === Array)
         {
+            if (!state.modified){
+                state.modified=true
             let metricList=receivedProps
             //console.log("Props received in application component")
             //console.log(metricList)
@@ -42,7 +45,7 @@ export default class ApplicationEndpointsMetric extends Component{
                 )
                 
             })
-        }
+        }}
         // Return null if the state hasn't changed
         return null;
     }

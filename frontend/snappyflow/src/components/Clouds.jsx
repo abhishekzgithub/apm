@@ -5,6 +5,7 @@ export default class Clouds extends Component {
     constructor(props,context) {
         super(props,context);
         this.state = {
+            modified : false,
             name: "",
             type: {},
             tags: {},
@@ -22,10 +23,16 @@ export default class Clouds extends Component {
         //console.log("getDerivedStateFromProps")
         //console.log(receivedProps)
         //console.log(state)
-        if (receivedProps) 
-            {   let cloud=receivedProps[0] //todo current assumption is there will be only one name 
-                //console.log("getDerivedStateFromProps props recieved")
-                //console.log(cloud)
+        
+        if (receivedProps)
+        {
+            //debugger;
+            //if (!state.modified)
+            //{
+                state.modified=true
+                let cloud=receivedProps[0] //todo current assumption is there will be only one name 
+                    //console.log("getDerivedStateFromProps props recieved")
+                    //console.log(cloud)
                 return (
                     {name: cloud.name,
                     type:cloud.type,
@@ -35,6 +42,9 @@ export default class Clouds extends Component {
                     }
                     )
             }
+            // else{
+            //     return null;
+            // }
         // Return null if the state hasn't changed
         return null;
     }

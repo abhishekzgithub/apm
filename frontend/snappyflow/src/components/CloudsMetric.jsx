@@ -5,7 +5,8 @@ export default class CloudsMetric extends Component{
     {
         super(props);
         this.state = {
-                clouds_metric : []
+                clouds_metric : [],
+                modified : false
         }
     }
 
@@ -20,6 +21,8 @@ export default class CloudsMetric extends Component{
             //debugger;
             //console.log("Props received in cloud metrics")
             //console.log(receivedProps)
+            if (!state.modified){
+                state.modified=true
             receivedProps.map((prop,index)=>{
                 //console.log("index")
                 //console.log(index)
@@ -31,7 +34,7 @@ export default class CloudsMetric extends Component{
                     "config" : prop.config || {}}
                 ])
             })
-        }
+        }}
         // Return null if the state hasn't changed
         return null;
     }

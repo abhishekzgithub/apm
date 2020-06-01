@@ -7,6 +7,7 @@ export default class Applications extends Component{
         super(props);
         this.state = {
             projectList : [],
+            modified: false
         }
     
     }
@@ -18,6 +19,8 @@ export default class Applications extends Component{
         //console.log(receivedProps)
         if (Boolean(receivedProps))// && Object.keys(receivedProps).length === 0 && receivedProps.constructor === Object)
         {
+            if (!state.modified){
+                state.modified=true
             let projectList=receivedProps.projectList
             //console.log("Props received in application component")
             //console.log(projectList)
@@ -34,7 +37,7 @@ export default class Applications extends Component{
                     ])
             })
             })
-        }
+        }}
         // Return null if the state hasn't changed
         return null;
     }
