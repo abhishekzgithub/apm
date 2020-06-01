@@ -63,14 +63,17 @@ export default class ApplicationEndpointsMetric extends Component{
                             items.map((endpt,ix)=>
                                 {
                                     return(
-                                        <ul key={endpt.index}>
+                                <div key={endpt.index}>
+                                    <ul key={endpt.index}>
                                         <li >plugin: {JSON.stringify(endpt.plugin)}</li>
                                         <li >enabled: {JSON.stringify(endpt.enabled)}</li>
                                         <li >interval: {JSON.stringify(endpt.interval)}</li>
                                         <li >
                                         config: {((endpt.config)?(<ApplicationEndpointsMetricConfig propFromAppEndPointsMetric = {endpt.config}/>): {})}
-                                        </li><br/>
-                                        </ul>
+                                        </li>
+                                        <br/>
+                                    </ul>
+                                </div>
                                     )}))}
                     </div>
                 )}

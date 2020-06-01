@@ -5,21 +5,17 @@ export default class ApplicationEndpointsMetricConfig extends Component{
     {
         super(props);
         this.state = {
-            application_endpoints_metric_config :{}
-            // {
-            //     plugin: "",
-            //     enabled : "",
-            //     interval : "",
-            //     config : {}
-            // },
+            modified: false,
+            application_endpoints_metric_config:{}
+
         }
-    
+        //this.addConfig=this.addConfig.bind(this)
     }
     static getDerivedStateFromProps(props, state) 
     {
         let receivedProps=props.propFromAppEndPointsMetric
         //debugger;
-        //console.log("propFromAppEndPointsMetric")
+        //console.log(" here propFromAppEndPointsMetric")
         //console.log(receivedProps)
         
         if (!( Object.keys(receivedProps).length === 0) && receivedProps.constructor === Object)
@@ -27,33 +23,65 @@ export default class ApplicationEndpointsMetricConfig extends Component{
             let metricConfigObject=receivedProps
             //console.log("Props received in application propFromAppEndPointsMetric")
             //console.log(metricConfigObject)
-            return (
-                    state.application_endpoints_metric_config = metricConfigObject
+            if (! (state.modified)){//!=metricConfigObject.username){
+                //console.log(" propFromAppEndPointsMetric updated")
+                //console.log(state)
+                return (
+                    state.application_endpoints_metric_config = metricConfigObject,
+                    state.modified = true
             )
-            // metricList.map((metricItem,index)=>
-            // {   //console.log("metricItem")
-            //     //console.log(metricItem)
-            //     state.application_endpoints_metric_config.push(
-            //         [
-            //             {   index:index,
-            //                 plugin: metricItem.plugin,
-            //                 enabled : metricItem.enabled,
-            //                 interval : metricItem.interval || 0,
-            //                 config : metricItem.config || {}
-            //         }]
-            //     )
-                
-            // })
+            }
+            else{
+                return null;
+            }
         }
         // Return null if the state hasn't changed
         return null;
     }
 
+
+    addConfig=(event)=>{
+
+        let self=this
+        event.preventDefault();
+        //console.log(event.target.value)
+        //console.log("pre state values")
+        let old_application_endpoints_metric_config=self.state.application_endpoints_metric_config
+        old_application_endpoints_metric_config.password=event.target.value
+        //console.log(self.state.application_endpoints_metric_config)
+        self.setState({
+            application_endpoints_metric_config:old_application_endpoints_metric_config
+        })
+        //console.log("post state values")
+        //console.log(self.state.application_endpoints_metric_config)
+
+    }
+    editConfig=()=>{
+        console.log("edit button clicked")
+    }
+    deleteConfig=()=>{
+        console.log("delete button clicked")
+    }
+    saveConfig=()=>{
+        console.log("save button clicked")
+    }
+    onSubmit = (event)=>{
+        console.log("change text")
+        event.persist()
+        console.log(event)
+        console.log(event.target.value)
+    }
+
+
     render()
     {   //const metrics = this.props.propFromAppEndPoints
         //console.log("ApplicationEndpointsMetricConfig")
-        //console.log(metrics)       
+        //console.log(metrics)
+        //console.log("State")       
+        //console.log(this.state)
         const {application_endpoints_metric_config} = this.state
+        //console.log("app")
+        //console.log(application_endpoints_metric_config)
         //console.log(application_endpoints_metric_config)
         const displayArray=(arr)=>{
             return(
@@ -69,7 +97,6 @@ export default class ApplicationEndpointsMetricConfig extends Component{
                 //debugger;
                 //console.log("ApplicationEndpointsMetricConfig")
                 //console.log(application_endpoints_metric_config)
-                
                 return(
                     <div>
                         {Object.keys(application_endpoints_metric_config).map((key,ix)=>
@@ -78,6 +105,15 @@ export default class ApplicationEndpointsMetricConfig extends Component{
                             </ul>
                         )
                         }
+                        <div align="right">
+                            <input type="text" id="key1"  onChange={this.addConfig}/>
+                            {this.state.username}
+                            {/* <input type="text" id="value1" onChange ={this.addConfig}/> */}
+                            <button type="submit" onClick={this.addConfig}>Add</button>
+                            <button type="submit" onClick={this.editConfig}>Edit</button>
+                            <button type="submit" onClick={this.deleteConfig}>Delete</button>
+                            <button type="submit"onClick={this.saveConfig}>Save</button>
+                        </div>
                     </div>
                 )}
             else
@@ -89,12 +125,7 @@ export default class ApplicationEndpointsMetricConfig extends Component{
                 <div>
                     {renderData()}<br/>
                 </div>
-                <div align="right">
-                        <button type="submit">Add</button>
-                        <button type="submit">Edit</button>
-                        <button type="submit">Delete</button>
-                        <button type="submit">Save</button>
-                    </div>
+
             </div>
         )
     }
