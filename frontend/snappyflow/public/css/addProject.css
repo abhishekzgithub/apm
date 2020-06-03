@@ -1,10 +1,51 @@
-html, body {
-    height: 100%;
-  }
-  body {
-    background: #eee;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+* {
+  box-sizing: border-box;
+  border-style:solid;
+}
+.container{
+  /* border-radius: 100px; */
+  background-color: lightseagreen;
+  /* padding: 100px; */
+  /* width: 1000px; */
+  /* height: 50%;
+  width: 75%; */
+  border-style:solid;
+}
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
   
+}
+
+input[type=text]{
+  width: 50%;
+  position: relative;
+  padding-left: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+input[type=button]{
+  float: right;
+  /* padding-right: 100px; */
+  /* width: 100%;
+  padding: 12px;
+  padding-left: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical; */
+}
+.saveCancel{
+  padding: 12px 12px 12px 1180px;
+  position: relative;
+  
+}
+.projectHeader{
+  padding-left: 2%;
+  text-align: left;
+  display: inline-block;
+}
+label.key{
+  padding-left: 2%;
+}

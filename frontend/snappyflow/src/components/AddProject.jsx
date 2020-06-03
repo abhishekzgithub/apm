@@ -16,11 +16,19 @@ export default class AddProject extends React.Component{
                 }
             ],
             endpointName:"",
+            endpointSettingsKey:"",
+            endpointSettingsValue:"",
             endpointDetails:[{
                 projectName: "",
                 uniqueKey: "",
                 applicationName : "",
-                endpointName : ""}],
+                endpointName : "",
+                endpointSettings:[{
+                    key:"",
+                    value:"",
+                    uniqueKey:""
+                }],
+            }],           
             responseJson:
             [
                 {projectName: "",
@@ -110,8 +118,9 @@ export default class AddProject extends React.Component{
         //console.log(projects)
         return(
             projects.map((item,index)=>
-                <div key={index}><br/>
-                    <input type="button" name={item} key={index} value={item}/>
+                <div key={index} ><br/>
+                    {/* <input type="button" name={item} key={index} value={item}/> */}
+                    <label>{item}</label><br/>
                     <input type="text"  value={this.state.applicationName} onChange={this.handleApplication}/>
                     <input type="button" id={generateKey(item)} name = {item} value="Add Applications" onClick={this.addApplication}/>
                     {this.displayApplication(item)}
@@ -141,7 +150,17 @@ export default class AddProject extends React.Component{
         this.setState((prevState)=>(prevState.endpointDetails.push(endpointDetails)))
 
     }
+    displayEndpoints=(project,application)=>{
+        let endpoint_details = this.state.endpointDetails
+        endpoint_details=endpoint_details.slice(1,)
+        let filter_endpoint=endpoint_details.filter((item)=>{
+            return item.projectElement==project && item.applicationName==application
+        })
+        console.log("filter_endpoint")
+        console.log(filter_endpoint)
+        console.log(endpoint_details)
 
+    }
 
     displayApplication=(projectNamevar)=>
     {
@@ -162,14 +181,15 @@ export default class AddProject extends React.Component{
             return(
                 <>{
                     filtered_app.map((ele)=>{
-                        console.log("project name")
-                        console.log(ele.projectName)
+                        //console.log("project name")
+                        //console.log(ele.projectName)
                     return(
                         <div key={ele.uniqueKey}>
-                            <label>Applications are</label>
-                            <label>{ele.applicationName}</label>
+                            <label style={{padding:"5px"}}>Applications are:  {ele.applicationName}</label><br/>
                             <input type="text" name={ele.applicationName} value={this.state.endpointName} onChange={this.handleEndpointName}/>
                     <input type="button" id={generateKey(ele.applicationName)} name ={ele.projectName} value="Add Endpoint" onClick={this.addEndpointName}/>
+                        {this.displayEndpoints(projectname,ele.applicationName)}
+                        
                         </div>)
                     })
                     }
@@ -184,33 +204,36 @@ export default class AddProject extends React.Component{
 
     render(){
         return(
-            <>
-                <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <div align ="right">
-                            <input type="button" value="Save"/>
-                            <input type="button" value="Cancel"/>
-                        </div>
+            <div className="container">
+                <form onSubmit={this.handleSubmit} >
+                    
+                    <div className="saveCancel">
+                        <input  type="submit" value="Save"/>
+                        <input type="submit" value="Cancel"/>
                     </div>
                     <div>
-                        <label>Poller Global Configuration:  </label>
+                        <label className="projectHeader">Poller Global Configuration:  </label>
                     </div>
                     <div>
-                        <label>Key</label>
-                        <input type="textarea" value={this.state.key} onChange={(e)=>{this.setState(()=>({key:event.target.value}))}}/>
-                        <input type="button" value="Edit"/>
+                        <label className="key">
+                            Key:
+                            <input type="text" value={this.state.key} onChange={(e)=>{this.setState(()=>({key:event.target.value}))}}/>
+                        
+                        <input type="button" value="Edit"/></label>
                     </div>
                     <div>
-                        <label>Project:</label>
-                        <input type="text" value={this.state.projectName} onChange={this.handleProjectname}/>
-                        <input type="submit" value="Add Project" onClick={this.addProject}/>
+                        <label >
+                            Project:
+                            <input type="text" value={this.state.projectName} onChange={this.handleProjectname}/>
+                        
+                        <input type="button" value="Add Project" onClick={this.addProject}/></label>
                     </div>
                     <div>
-                        {this.displayProjects()}<br/><br/><br/>
-                        {JSON.stringify(this.state)}
+                        {this.displayProjects()}<br/><br/>
+                        {/* {JSON.stringify(this.state)} */}
                     </div>
                 </form>
-            </>
+            </div>
         )
     }
 }
