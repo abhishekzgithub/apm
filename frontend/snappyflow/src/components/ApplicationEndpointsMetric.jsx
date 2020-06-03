@@ -50,8 +50,27 @@ export default class ApplicationEndpointsMetric extends Component{
         return null;
     }
 
+    onFormSubmit=(data)=>{
+        this.setState({
+            application_endpoints_metric:data
+        })
+    }
+
+    updateConfigState=(data)=>{
+        console.log("config updated")
+        console.log("application_endpoints_metric")
+        console.log(data)
+        let old_application_endpoints_metric=this.state.application_endpoints_metric
+        old_application_endpoints_metric.config=data
+        this.setState({
+            application_endpoints_metric:old_application_endpoints_metric
+        })
+        this.props.updateMetricState(this.state.application_endpoints_metric)
+    }
+
+
     render()
-    {   const metrics = this.props.propFromAppEndPoints
+    {   //const metrics = this.props.propFromAppEndPoints
         //console.log("ApplicationEndpointsMetric")
         //console.log(metrics)       
         const {application_endpoints_metric} = this.state
@@ -72,7 +91,7 @@ export default class ApplicationEndpointsMetric extends Component{
                                         <li >enabled: {JSON.stringify(endpt.enabled)}</li>
                                         <li >interval: {JSON.stringify(endpt.interval)}</li>
                                         <li >
-                                        config: {((endpt.config)?(<ApplicationEndpointsMetricConfig propFromAppEndPointsMetric = {endpt.config}/>): {})}
+                                        config: {((endpt.config)?(<ApplicationEndpointsMetricConfig updateConfigState={this.updateConfigState}  propFromAppEndPointsMetric = {endpt.config}/>): {})}
                                         </li>
                                         <br/>
                                     </ul>

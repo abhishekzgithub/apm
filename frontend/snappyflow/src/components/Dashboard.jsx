@@ -39,12 +39,20 @@ class Dashboard extends React.Component{
    componentDidMount(){
        this.getYaml()
     }
+    onFormSubmit=(data)=>{
+        this.setState({
+            clouds : data.clouds,
+            heartbeat_interval : data.heartbeat_interval,
+            key : data.key,
+            projects : data.projects 
+        })
+    }
     render(){
         // const {clouds, heartbeat_interval, key, projects} = this.state
         return(
             <div>
                 <h1 align="center">SF Poller Configuration</h1>
-                <ProjectAttributes dataFromDashboard = {this.state}/>
+                <ProjectAttributes dataFromDashboard = {this.state} callbackFunction = {this.onFormSubmit}/>
             </div>
         )
     }};

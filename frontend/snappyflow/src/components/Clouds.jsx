@@ -48,7 +48,16 @@ export default class Clouds extends Component {
         // Return null if the state hasn't changed
         return null;
     }
-
+    onFormSubmit=(data)=>{
+        let cloud=data
+        this.setState({
+            name:   cloud.name,
+            type:   cloud.type,
+            tags:   cloud.tags,
+            config: cloud.config,
+            metric: cloud.metric
+        })
+    }
     render() {
             const { name, type, tags, config, metric } = this.state
             //console.log("In render")

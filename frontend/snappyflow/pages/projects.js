@@ -3,7 +3,7 @@ import Head from 'next/head'
 //import Dashboard from "../src/components/Dashboard"
 
 // import "./../public/css/addProject.css"
-import AddProject from "../src/components/AddProject"
+import ProjectTree from "../src/components/ProjectTree"
 
 export default function addProject() {
   return (
@@ -19,8 +19,8 @@ export default function addProject() {
           <br/><br/>
           <Dashboard/>
         </div> */}
-        <div id="id-addproject">
-          <AddProject/>
+        <div id="id-ProjectTree">
+          <ProjectTree/>
         </div>
       </main>
     </div>

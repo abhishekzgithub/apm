@@ -41,6 +41,13 @@ export default class Applications extends Component{
         // Return null if the state hasn't changed
         return null;
     }
+
+    onFormSubmit=(data)=>{
+        this.setState({
+            projectList:data
+        })
+    }
+
     render()
     {   //const projects = this.props.dataFromProjectAttr
         let {projectList} = this.state

@@ -21,8 +21,8 @@
                     "min": "",
                     "max": "",
                     "tooltip":"Password for MySQL server"
-                    },
-                    {
+                },
+                {
                     "fieldName": "documentsTypes",
                     "label": "Document Types",
                     "dataType": "list",

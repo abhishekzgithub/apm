@@ -39,6 +39,14 @@ export default class CloudsMetric extends Component{
         return null;
     }
 
+
+    onFormSubmit=(data)=>{
+        this.setState({
+            clouds_metric: data,
+           
+        })
+    }
+
     render()
     {   let {clouds_metric} = this.state
         //console.log("In cloud metric")
