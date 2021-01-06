@@ -13,7 +13,7 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.55",
     "@react-spring/web": "^9.0.0-rc.3",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "grommet": "^2.13.0",
     "next": "9.3.5",
     "polished": "^3.6.4",
